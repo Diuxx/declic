@@ -1,0 +1,10 @@
+
+
+#
+POST http://localhost:8080/api/v1/correction
+Content-Type: application/json
+
+{
+  "text": "Ths is a smple txt with erors.",
+  "language": "en"
+}

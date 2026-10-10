@@ -6,6 +6,47 @@ Application de correction orthographique, elle corrige un phrase simple et affic
 - les mots ou passages modifiés.
 - une explication des corrections.
 
+                  UTILISATEUR
+                       |
+                       | ouvre l'application
+                       v
+               +----------------+
+               |   Navigateur   |
+               +----------------+
+                       |
+                       | HTTP / HTTPS
+                       v
++---------------------------------------------------+
+|                TON SERVEUR DOCKER                 |
+|                                                   |
+|  +---------------------+                          |
+|  | Conteneur FRONTEND  |                          |
+|  |                     |                          |
+|  | Nginx sert les      |                          |
+|  | fichiers Angular   |                          |
+|  +---------------------+                          |
+|             |                                     |
+|             | Le navigateur exécute Angular       |
+|             | et appelle POST /api/v1/corrections  |
+|             v                                     |
+|  +---------------------------------------------+  |
+|  | Conteneur BACKEND : Java / Spring Boot       |  |
+|  |                                             |  |
+|  | Controller -> Service -> OpenAI Provider    |  |
+|  |                                             |  |
+|  | Clé API injectée au lancement               |  |
+|  +---------------------------------------------+  |
+|                         |                         |
++-------------------------|-------------------------+
+                          |
+                          | HTTPS + clé API
+                          v
+                 +------------------+
+                 |    API OpenAI    |
+                 |                  |
+                 | Corrige le texte |
+                 +------------------+
+
 ## Technologies
 
 - Backend : Java 21, Spring Boot et Maven
@@ -55,3 +96,7 @@ npm start
 - [ ] V0 : correction via OpenAI en local
 - [ ] V1 : tests, sécurité et déploiement
 - [ ] V2 : connexion à une IA locale
+
+## Note JDK
+
+$env:JAVA_HOME = "C:\Program Files\Java\jdk-21.0.12"; $env:Path = "$env:JAVA_HOME\bin;$env:Path"; $env:SPRING_PROFILES_ACTIVE = "dev"
