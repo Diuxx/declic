@@ -1,0 +1,32 @@
+{
+  "text": {
+    "format": {
+      "type": "json_schema",
+      "name": "correction_result",
+      "strict": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "correction": {
+            "type": "string"
+          },
+          "changements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "avant": { "type": "string" },
+                "apres": { "type": "string" },
+                "explication": { "type": "string" }
+              },
+              "required": ["avant", "apres", "explication"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["correction", "changements"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

@@ -1,6 +1,9 @@
 
+# Application Health Check
+GET http://localhost:8080/api/v1/health
+Content-Type: application/json
 
-#
+# Text Correction Request
 POST http://localhost:8080/api/v1/correction
 Content-Type: application/json
 
