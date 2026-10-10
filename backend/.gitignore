@@ -34,3 +34,6 @@ build/
 
 ### JAVA ###
 /logs/
+.env
+.env.*
+!.env.example
