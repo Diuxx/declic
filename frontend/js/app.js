@@ -54,7 +54,9 @@
 
     beginCorrection();
     try {
-      const response = await correctText(text);
+      const response = await correctText(text, {
+        includeExplanations: view.readIncludeExplanations()
+      });
       validateCorrectionResponse(response);
       view.renderCorrection(response);
       view.showStatus('success');

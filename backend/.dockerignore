@@ -1,0 +1,7 @@
+target
+.git
+.mvn/wrapper/maven-wrapper.jar
+logs
+README.md
+HELP.md
+requests.http

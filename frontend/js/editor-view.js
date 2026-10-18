@@ -199,6 +199,7 @@
     return {
       bindEvents,
       readText: () => elements.textInput.value,
+      readIncludeExplanations: () => elements.showDetails.checked,
       readCorrectedText: () => elements.correctedText.textContent,
       focusInput: () => elements.textInput.focus(),
       hideResult,
