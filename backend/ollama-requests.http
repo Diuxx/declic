@@ -1,0 +1,110 @@
+
+@baseUrl = http://localhost:11434
+@model = qwen3.5:2b-corr
+
+### Vérifier les modèles disponibles
+GET {{baseUrl}}/api/tags
+
+### Tester la correction orthographique
+POST {{baseUrl}}/api/chat
+Content-Type: application/json
+
+{
+  "keep_alive": "30m",
+  "model": "{{model}}",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Corrige : Je parl pa bien le fransais"
+    }
+  ],
+  "stream": false,
+  "think": false,
+  "format": "json",
+  "options": {
+    "temperature": 0
+  }
+}
+
+
+
+
+@baseUrl = http://localhost:11434
+@model = qwen3.5:4b
+
+### Correction orthographique
+POST {{baseUrl}}/api/chat
+Content-Type: application/json
+
+{
+  "model": "{{model}}",
+  "stream": false,
+  "think": false,
+  "format": {
+    "type": "object",
+    "properties": {
+      "correction": {
+        "type": "string"
+      }
+    },
+    "required": ["correction"],
+    "additionalProperties": false
+  },
+  "options": {
+    "temperature": 0,
+    "num_ctx": 4096
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Tu es un correcteur orthographique et grammatical français. Corrige uniquement l'orthographe, la grammaire et la ponctuation. Conserve le vocabulaire, le sens et le style. Ne reformule jamais. Retourne uniquement le texte corrigé dans le champ correction."
+    },
+    {
+      "role": "user",
+      "content": "J'aim b1 le fransai ses une bel langue ! mais trè difficile."
+    }
+  ]
+}
+
+
+
+@baseUrl = http://localhost:11434
+@model = qwen3.5:4b
+
+### Correction orthographique optimisée
+POST {{baseUrl}}/api/chat
+Content-Type: application/json
+
+{
+  "model": "{{model}}",
+  "stream": false,
+  "think": false,
+  "keep_alive": "30m",
+  "options": {
+    "temperature": 0,
+    "num_ctx": 2048,
+    "num_predict": 2048
+  },
+  "format": {
+    "type": "object",
+    "properties": {
+      "correction": {
+        "type": "string"
+      }
+    },
+    "required": ["correction"],
+    "additionalProperties": false
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "Corrige uniquement l'orthographe, la grammaire et la ponctuation du texte fourni. Conserve le vocabulaire, le sens et le style. Ne reformule jamais. Retourne uniquement le texte corrigé dans le champ correction."
+    },
+    {
+      "role": "user",
+      "content": "Hier matin, je suis partis au travail plus tot que d'habitude, parce que mon reveil n'avais pas sonner. En sortant de chez moi, j'ai remarquer que les rues était presque vide et que le ciel commencais a devenir gris. J'avais oublier mon parapluie, mais je me suis dit que la pluie n'arriverais pas avant midi.\nDans le bus, plusieurs personnes discutais fort de leurs vacances. Une dame racontais qu'elle avais visiter l'Italie avec ses enfants, et qu'ils avaient manger des pizza tout les jours. A coté d'elle, un jeune homme cherchais ces écouteurs depuis dix minutes alors qu'ils était dans sa poche.\nQuand je suis arriver au bureau, mon collègue ma demander si j'avais terminer le rapport qu'on devais envoyer hier. Je lui est répondu que je l'avais presque fini, sauf deux tableau qui contenais des erreurs. Il ma conseiller de vérifier les chiffres avant de les partager, car la semaine derniere nous avions envoyer un document avec plusieurs information incorrecte.\nA midi, nous somme aller déjeuner dans un petit restaurant pres de la gare. Le serveur nous a proposer des plats du jours, mais aucun ne me plaisais vraiment. J'ai commander une salade et un café, tandis que mes collègues ont choisit des pates.\nL'après midi, j'ai voulu installer une mise a jour sur mon ordinateur. Le logiciel affichais un message étrange : certaines fichier était introuvable, et plusieurs services ne répondais plus. J'ai essayer de redémarrer la machine, mais sa n'a rien changer. Finalement, une collègue m'a expliquer que le serveur avait été arrêter pour une maintenance prévu depuis plusieurs jours. Je n'avais simplement pas lu le message envoyer par l'équipe technique.\nEn rentrant le soir, j'étais fatiguer mais assez content de ma journée. J'ai retrouver mes clés, préparer quelque chose a manger et appeler un ami. Nous avons parler de nos projets pour le week end, sans réussir a nous mettre d'accord. Demain, je prendrais le temps de mieux m'organiser pour évité de répéter les même erreurs."
+    }
+  ]
+}
+
+

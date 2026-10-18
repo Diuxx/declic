@@ -1,0 +1,10 @@
+{
+  "name": "declic-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interface statique de correction avec présentation claire et discrète",
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "check": "node --check js/correction-service.js && node --check js/editor-view.js && node --check js/app.js"
+  }
+}

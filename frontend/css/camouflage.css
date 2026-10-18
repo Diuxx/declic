@@ -1,0 +1,210 @@
+body.camouflage {
+  place-items: start center;
+  background: #faf9f6;
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+
+body.camouflage .article-header {
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+body.camouflage .brand {
+  border-bottom: 1px solid #dddcd7;
+  padding-bottom: 22px;
+  color: #595e55;
+}
+
+body.camouflage .category {
+  color: #73786f;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  margin: 30px 0 16px;
+}
+
+body.camouflage .category span {
+  margin: 0 8px;
+  color: #aaa;
+}
+
+body.camouflage h1 {
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 6vw, 48px);
+  line-height: 1.15;
+  color: #292e28;
+}
+
+body.camouflage .standfirst {
+  font-size: 18px;
+  line-height: 1.65;
+  color: #61665e;
+  max-width: 660px;
+}
+
+body.camouflage .byline {
+  color: #787d75;
+  font-size: 12px;
+}
+
+body.camouflage article {
+  font-family: Georgia, serif;
+  color: #3c423a;
+  font-size: 18px;
+  line-height: 1.85;
+}
+
+body.camouflage article h2 {
+  font-size: 24px;
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+body.camouflage article blockquote {
+  margin: 26px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid #bcc5b5;
+  font-style: italic;
+  color: #667260;
+}
+
+body.camouflage button {
+  background: #5b6c53;
+  font-size: 12px;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+body.camouflage button:hover {
+  background: #495b42;
+}
+
+body.camouflage input[type="checkbox"] {
+  accent-color: #5b6c53;
+}
+
+body.camouflage :focus-visible {
+  outline-color: #778b70;
+}
+
+@media (max-width: 480px) {
+  body.camouflage {
+    padding-top: 28px;
+  }
+  body.camouflage article {
+    font-size: 17px;
+  }
+  body.camouflage .standfirst {
+    font-size: 16px;
+  }
+}
+
+body.camouflage .view-controls button {
+  color: #61665e;
+  border-color: #dddcd7;
+  background: transparent;
+}
+
+body.camouflage .view-controls button:hover {
+  background: #eeede7;
+}
+
+/* Le bloc partage le fond et la typographie du corps de l’article. */
+body.camouflage #workspace {
+  margin: 22px 0 28px;
+}
+
+body.camouflage .editor {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+body.camouflage .editor:focus-within {
+  border: 0;
+}
+
+body.camouflage textarea {
+  padding: 0;
+  min-height: 100px;
+  resize: none;
+  overflow: hidden;
+  font: inherit;
+  color: inherit;
+}
+
+body.camouflage textarea::placeholder {
+  color: #787d75;
+}
+
+body.camouflage textarea:focus-visible {
+  outline: 1px dashed #b7beb1;
+  outline-offset: 6px;
+}
+
+body.camouflage .toolbar {
+  padding: 8px 0 0;
+}
+
+body.camouflage .toolbar button,
+body.camouflage .copy {
+  padding: 4px 0;
+  background: transparent;
+  color: #687260;
+  font-size: 12px;
+}
+
+body.camouflage .toolbar button:hover,
+body.camouflage .copy:hover {
+  background: transparent;
+  text-decoration: underline;
+}
+
+body.camouflage .counter {
+  font-size: 11px;
+  color: #85897f;
+}
+
+body.camouflage .options {
+  margin: 10px 0 0;
+  font: 12px system-ui, sans-serif;
+  color: #787d75;
+}
+
+body.camouflage .options input {
+  width: 13px;
+  height: 13px;
+}
+
+body.camouflage .result {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin-top: 20px;
+}
+
+body.camouflage #resultTitle {
+  display: none;
+}
+
+body.camouflage .result-header {
+  justify-content: flex-end;
+}
+
+body.camouflage #correctedText {
+  font: inherit;
+  color: inherit;
+  margin: 6px 0 0;
+}
+
+body.camouflage #details {
+  border-color: #dddcd7;
+}
+
+body.camouflage .status {
+  margin-left: 0;
+}

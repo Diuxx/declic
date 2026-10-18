@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Déclic — Correction</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/camouflage.css">
+    <script src="js/correction-service.js" defer></script>
+    <script src="js/editor-view.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <nav class="view-controls" aria-label="Présentation">
+        <button type="button" id="modeToggle" aria-pressed="false">Mode discret</button>
+      </nav>
+      <header id="standardHeader">
+        <p class="brand">Déclic</p>
+        <h1>Un texte, les mots justes.</h1>
+        <p class="subtitle">Écrivez ou collez votre texte pour le corriger.</p>
+      </header>
+      <div id="articleView" hidden>
+        <header class="article-header">
+          <p class="brand">Carnet · Regards sur le quotidien</p>
+          <p class="category">VIE URBAINE <span aria-hidden="true">/</span> 4 MIN DE LECTURE</p>
+          <h1>Les villes à hauteur de marche</h1>
+          <p class="standfirst">Quand on ralentit, les rues deviennent autre chose qu’un trajet. Elles racontent une façon d’habiter ensemble.</p>
+          <p class="byline">La rédaction · Essai</p>
+        </header>
+        <article aria-label="Les villes à hauteur de marche">
+          <p>Un matin, on choisit de faire le trajet à pied. La distance n’a pas changé, mais le quartier semble différent. Une boulangerie ouvre ses portes, un arbre dessine une ombre sur le trottoir, deux voisins échangent quelques mots. Ce qui paraissait être un simple passage devient un lieu.</p>
+          <div id="articleWorkspaceSlot"></div>
+          <h2>Le détail fait le quartier</h2>
+          <p>Une ville agréable se découvre souvent dans les petites choses : un banc à l’abri du soleil, une traversée facile, une place où l’on peut s’arrêter sans devoir acheter quelque chose. Ces espaces donnent du rythme à la marche et laissent une place à l’imprévu.</p>
+          <blockquote>Marcher, c’est laisser au quotidien le temps de se révéler.</blockquote>
+          <p>Il ne s’agit pas toujours de transformer toute une rue. Parfois, quelques mètres de verdure ou un endroit pour s’asseoir suffisent à modifier notre relation à un trajet familier.</p>
+          <h2>Retrouver le temps d’observer</h2>
+          <p>À pied, on remarque les saisons dans les arbres et les habitudes derrière les fenêtres. On apprend où la lumière tombe en fin d’après-midi. La ville cesse peu à peu d’être une carte : elle devient une collection de repères personnels.</p>
+          <p>Et si l’on commençait simplement par une rue, un détour, dix minutes sans se presser ? Le prochain endroit à découvrir est peut-être celui que l’on traverse chaque jour.</p>
+        </article>
+      </div>
+      <div id="standardWorkspaceSlot">
+        <div id="workspace">
+          <form id="correctionForm">
+            <div class="editor">
+              <textarea id="textInput" aria-label="Texte à corriger" placeholder="Votre texte commence ici…" required></textarea>
+              <div class="toolbar">
+                <span class="counter" id="counter">0 caractère</span>
+                <button type="submit" id="correctButton">Correction <span aria-hidden="true">↗</span></button>
+              </div>
+            </div>
+            <label class="options">
+              <input type="checkbox" id="showDetails">
+              <span id="detailsLabel">Afficher les informations corrigées</span>
+            </label>
+          </form>
+          <p class="hint" id="demoHint">Mode démonstration · Quelques fautes courantes sont prises en charge.</p>
+          <p class="status" id="status" role="status" aria-live="polite"></p>
+          <section class="result" id="result" aria-labelledby="resultTitle" hidden>
+            <div class="result-header">
+              <h2 id="resultTitle">Texte corrigé</h2>
+              <button class="copy" type="button" id="copyButton">Copier</button>
+            </div>
+            <p id="correctedText"></p>
+            <div id="details" hidden>
+              <h3 id="detailsTitle">Détail des corrections</h3>
+              <ul id="correctionsList"></ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

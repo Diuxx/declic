@@ -1,8 +1,6 @@
 package com.nico.declic.providers.adapters;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
-import org.springframework.stereotype.Component;
 
 import com.nico.declic.config.CorrectionPrompt;
 import com.nico.declic.dtos.CorrectionChange;
@@ -14,11 +12,6 @@ import com.openai.client.OpenAIClient;
 import com.openai.models.responses.ResponseCreateParams;
 import com.openai.models.responses.ResponseStatus;
 
-@Component
-@ConditionalOnProperty(
-    name = "app.ai.provider",
-    havingValue = "openai"
-)
 public class OpenAiAdapter implements CorrectionProvider {
     
     private final OpenAIClient client;
