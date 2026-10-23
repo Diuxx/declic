@@ -30,7 +30,7 @@ Content-Type: application/json
 
 
 @baseUrl = http://localhost:11434
-@model = qwen3.5:4b
+@model = ministral-3:3b
 
 ### Correction orthographique
 POST {{baseUrl}}/api/chat
@@ -69,8 +69,8 @@ Content-Type: application/json
 
 
 @baseUrl = http://localhost:11434
-@model = qwen3.5:4b
-
+@model = ministral-3:3b  
+#qwen3.5:4b
 ### Correction orthographique optimisée
 POST {{baseUrl}}/api/chat
 Content-Type: application/json
